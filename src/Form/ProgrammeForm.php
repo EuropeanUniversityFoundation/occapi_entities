@@ -47,10 +47,12 @@ class ProgrammeForm extends ContentEntityForm {
     }
     else {
       $this->messenger()->addStatus($this->t('The programme %label has been updated.', $message_arguments));
-      $this->logger('occapi_entities')->notice('Updated new programme %label.', $logger_arguments);
+      $this->logger('occapi_entities')->notice('Updated programme %label.', $logger_arguments);
     }
 
     $form_state->setRedirect('entity.programme.canonical', ['programme' => $entity->id()]);
+
+    return $result;
   }
 
 }

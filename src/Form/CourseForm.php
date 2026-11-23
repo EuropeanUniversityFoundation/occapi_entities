@@ -47,10 +47,12 @@ class CourseForm extends ContentEntityForm {
     }
     else {
       $this->messenger()->addStatus($this->t('The course %label has been updated.', $message_arguments));
-      $this->logger('occapi_entities')->notice('Updated new course %label.', $logger_arguments);
+      $this->logger('occapi_entities')->notice('Updated course %label.', $logger_arguments);
     }
 
     $form_state->setRedirect('entity.course.canonical', ['course' => $entity->id()]);
+
+    return $result;
   }
 
 }
